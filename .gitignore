@@ -1,0 +1,14 @@
+# Local/sensitive overrides — never committed
+*.local
+*.local.*
+
+# Backup files created by the installer
+*.backup
+*.backup.*
+
+# Installer logs
+*.log
+
+# OS noise
+.DS_Store
+Thumbs.db
