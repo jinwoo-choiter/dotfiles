@@ -1,0 +1,24 @@
+# ── dotfiles: bash settings ───────────────────────────────────────────────────
+
+# Load bash aliases
+[ -f ~/.bash_aliases ] && source ~/.bash_aliases
+
+# Improved history
+export HISTSIZE=10000
+export HISTFILESIZE=20000
+export HISTCONTROL=ignoreboth:erasedups
+shopt -s histappend
+
+# Better defaults
+shopt -s checkwinsize
+shopt -s globstar 2>/dev/null || true
+
+# Colourful prompt (user@host:dir $)
+if [ -x /usr/bin/tput ] && tput setaf 1 &>/dev/null; then
+    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+else
+    PS1='\u@\h:\w\$ '
+fi
+
+# Load local overrides (not committed to repo)
+[ -f ~/.bashrc.local ] && source ~/.bashrc.local

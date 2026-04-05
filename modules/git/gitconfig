@@ -1,0 +1,36 @@
+[core]
+    autocrlf = input
+    editor = vim
+    excludesfile = ~/.gitignore_global
+
+[color]
+    ui = auto
+
+[push]
+    default = current
+    autoSetupRemote = true
+
+[pull]
+    rebase = false
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    algorithm = patience
+
+[alias]
+    st = status
+    co = checkout
+    br = branch
+    lg = log --oneline --graph --decorate --all
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    aliases = config --get-regexp alias
+
+[init]
+    defaultBranch = main
+
+[include]
+    # Local overrides (name, email, signing key) — not committed to repo
+    path = ~/.gitconfig.local

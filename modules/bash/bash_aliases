@@ -1,0 +1,40 @@
+# ── dotfiles: bash aliases ────────────────────────────────────────────────────
+
+# Navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias ~='cd ~'
+
+# Listing
+alias ls='ls --color=auto'
+alias ll='ls -alFh'
+alias la='ls -Ah'
+alias l='ls -CFh'
+
+# Safety nets
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# Git shortcuts
+alias g='git'
+alias gs='git status'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git log --oneline --graph --decorate'
+alias gd='git diff'
+alias gco='git checkout'
+alias gb='git branch'
+
+# System
+alias grep='grep --color=auto'
+alias df='df -h'
+alias du='du -h'
+alias free='free -h'
+alias ports='ss -tulanp'
+
+# Editor
+export EDITOR='vim'
+alias vi='vim'
