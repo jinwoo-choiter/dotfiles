@@ -1,0 +1,18 @@
+# ── dotfiles: SSH client config ───────────────────────────────────────────────
+
+Host *
+    ServerAliveInterval 60
+    ServerAliveCountMax 3
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_ed25519
+
+# Example host entry (copy and customise as needed):
+# Host myserver
+#     HostName 192.168.1.100
+#     User deploy
+#     Port 22
+#     IdentityFile ~/.ssh/id_ed25519
+
+# Load local SSH config (not committed to repo)
+# Create ~/.ssh/config.local for machine-specific hosts
+Include ~/.ssh/config.local
