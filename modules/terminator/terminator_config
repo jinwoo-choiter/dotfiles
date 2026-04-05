@@ -1,0 +1,26 @@
+[global_config]
+  title_transmit_bg_color = "#d30102"
+  title_receive_bg_color = "#3f8b3f"
+
+[keybindings]
+
+[profiles]
+  [[default]]
+    background_color = "#1e1e2e"
+    foreground_color = "#cdd6f4"
+    cursor_color = "#f5e0dc"
+    font = MesloLGS NF 11
+    use_system_font = False
+    scrollback_lines = 10000
+    palette = "#45475a:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#bac2de:#585b70:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#a6adc8"
+
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+
+[plugins]
