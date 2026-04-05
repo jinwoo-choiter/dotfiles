@@ -1,0 +1,17 @@
+[
+    // Terminal
+    { "key": "ctrl+`",        "command": "workbench.action.terminal.toggleTerminal" },
+    { "key": "ctrl+shift+`",  "command": "workbench.action.terminal.new" },
+
+    // Panel
+    { "key": "ctrl+b",        "command": "workbench.action.toggleSidebarVisibility" },
+
+    // Navigation
+    { "key": "ctrl+shift+e",  "command": "workbench.view.explorer" },
+    { "key": "ctrl+shift+g",  "command": "workbench.view.scm" },
+
+    // Editor groups
+    { "key": "ctrl+\\",       "command": "workbench.action.splitEditor" },
+    { "key": "ctrl+1",        "command": "workbench.action.focusFirstEditorGroup" },
+    { "key": "ctrl+2",        "command": "workbench.action.focusSecondEditorGroup" }
+]

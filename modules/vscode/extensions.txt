@@ -1,0 +1,25 @@
+# VSCode extensions — installed by scripts/vscode-ext.sh
+# One extension ID per line. Lines starting with # are comments.
+
+# Theme
+catppuccin.catppuccin-vsc
+catppuccin.catppuccin-vsc-icons
+
+# Language support
+ms-python.python
+ms-python.black-formatter
+ms-python.isort
+rust-lang.rust-analyzer
+golang.go
+redhat.vscode-yaml
+tamasfe.even-better-toml
+ms-vscode.cmake-tools
+
+# Utilities
+eamodio.gitlens
+mhutchie.git-graph
+streetsidesoftware.code-spell-checker
+esbenp.prettier-vscode
+EditorConfig.EditorConfig
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-containers
