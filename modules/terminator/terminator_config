@@ -1,17 +1,17 @@
 [global_config]
-  title_transmit_bg_color = "#d30102"
-  title_receive_bg_color = "#3f8b3f"
+  suppress_multiple_term_dialog = True
 
 [keybindings]
 
 [profiles]
   [[default]]
-    background_color = "#1e1e2e"
+    background_type = transparent
+    background_darkness = 0.8
     foreground_color = "#cdd6f4"
-    cursor_color = "#f5e0dc"
-    font = MesloLGS NF 11
+    cursor_color = "#aaaaaa"
+    font = Mono 15
     use_system_font = False
-    scrollback_lines = 10000
+    scrollback_infinite = True
     palette = "#45475a:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#bac2de:#585b70:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#a6adc8"
 
 [layouts]
@@ -19,8 +19,10 @@
     [[[window0]]]
       type = Window
       parent = ""
+      size = 3840, 2160
     [[[child1]]]
       type = Terminal
       parent = window0
+      profile = default
 
 [plugins]
