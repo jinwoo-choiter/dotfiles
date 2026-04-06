@@ -3,22 +3,33 @@
 # Load bash aliases
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
-# Improved history
+# History
 export HISTSIZE=10000
 export HISTFILESIZE=20000
 export HISTCONTROL=ignoreboth:erasedups
 shopt -s histappend
 
-# Better defaults
+# Shell options
 shopt -s checkwinsize
 shopt -s globstar 2>/dev/null || true
 
-# Colourful prompt (user@host:dir $)
-if [ -x /usr/bin/tput ] && tput setaf 1 &>/dev/null; then
-    PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='\u@\h:\w\$ '
-fi
+# Prompt — abbreviated path + git branch + dirty indicator
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit, working tree clean" ]] && echo "*"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/(\1$(parse_git_dirty))/"
+}
+
+PROMPT_COMMAND='case $PWD in
+        $HOME) HPWD="~";;
+        $HOME/*/*) HPWD="../${PWD#"${PWD%/*/*}/"}";;
+        $HOME/*) HPWD="~/${PWD##*/}";;
+        /*/*/*) HPWD="${PWD#"${PWD%/*/*}/"}";;
+        *) HPWD="$PWD";;
+      esac'
+
+export PS1='\[\e[\033[01;34m\]\e[38;5;211m\]\w\[\e[\033[38;5;48m\] $(parse_git_branch)\[\e[\033[00m\]\n\$ '
 
 # Load local overrides (not committed to repo)
 [ -f ~/.bashrc.local ] && source ~/.bashrc.local
