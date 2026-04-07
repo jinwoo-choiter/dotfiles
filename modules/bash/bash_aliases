@@ -38,3 +38,18 @@ alias ports='ss -tulanp'
 # Editor
 export EDITOR='vim'
 alias vi='vim'
+
+# Fork workflow
+# git-fork-clone <org-ssh-url>
+#   Clones org repo, then runs git fork-init to set up upstream/origin.
+#   Requires github.user in ~/.gitconfig.local
+git-fork-clone() {
+    if [ -z "$1" ]; then
+        echo "Usage: git-fork-clone <org-ssh-url>"
+        echo "  e.g. git-fork-clone git@github.com:org/repo.git"
+        return 1
+    fi
+    local repo_name
+    repo_name="$(basename "$1" .git)"
+    git clone "$1" && cd "$repo_name" && git fork-init
+}

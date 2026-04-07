@@ -30,6 +30,28 @@
     last = log -1 HEAD
     aliases = config --get-regexp alias
 
+    # Fork workflow helpers
+    # Requires [github] user = YOUR_USERNAME in ~/.gitconfig.local
+    #
+    # git fork-init
+    #   Renames origin → upstream, adds your fork as origin (SSH URL auto-composed)
+    fork-init = "!f() { \
+        gh_user=$(git config github.user); \
+        if [ -z \"$gh_user\" ]; then \
+            echo 'Error: github.user not set. Add to ~/.gitconfig.local:'; \
+            echo '  [github]'; \
+            echo '      user = YOUR_GITHUB_USERNAME'; \
+            exit 1; \
+        fi; \
+        repo_name=$(basename $(git remote get-url origin) .git); \
+        fork_url=\"git@github.com:$gh_user/$repo_name.git\"; \
+        git remote rename origin upstream && \
+        git remote add origin \"$fork_url\" && \
+        git fetch origin && \
+        printf '\nRemotes:\n' && \
+        git remote -v; \
+    }; f"
+
 [init]
     defaultBranch = main
 

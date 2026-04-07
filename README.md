@@ -110,11 +110,32 @@ Files matching `*.local` are git-ignored. Use them for machine-specific settings
 
 | File | Purpose |
 |------|---------|
-| `~/.gitconfig.local` | Your name, email, GPG key |
+| `~/.gitconfig.local` | Your name, email, GPG key, GitHub username |
 | `~/.bashrc.local` | Machine-specific env vars, PATH additions |
 | `~/.ssh/config.local` | Host-specific SSH entries |
 
 The managed configs automatically `include`/`source` these files when present.
+
+### Fork workflow setup
+
+`git fork-init` and `git-fork-clone` require your GitHub username in `~/.gitconfig.local`:
+
+```ini
+[github]
+    user = YOUR_GITHUB_USERNAME
+```
+
+Then:
+
+```bash
+# Clone + setup in one step
+git-fork-clone git@github.com:org/repo.git
+# → clones, renames origin → upstream, adds git@github.com:YOU/repo.git as origin
+
+# Or after manual clone
+git clone git@github.com:org/repo.git && cd repo
+git fork-init
+```
 
 ---
 
